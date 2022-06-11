@@ -1,0 +1,4 @@
+computer science course: object oriented programming (4), arabic (3)
+lecturers: arie (1), hemi (1), hodyah (1)
+semitic languages: arabic (1), hebrew (1)
+

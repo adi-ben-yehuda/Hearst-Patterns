@@ -1,6 +1,8 @@
-import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
 
 /**
  * @author Adi Ben Yehuda 211769757
@@ -9,51 +11,42 @@ import java.time.format.DateTimeFormatter;
 public class DiscoverHypernym {
     /**
      * The function will search all the possible hypernyms of the input lemma
-     * and print them to the console
+     * and print them to the console.
      *
      * @param args contains two arguments: (1) the absolute path to the
      *             directory of the corpus and (2) a lemma.
      */
     public static void main(String[] args) throws IOException {
-        String pathCorpus = null, lemma = null, s;
+        String pathCorpus, lemma = null, s;
         BufferedReader reader = null;
         HypernymAndHyponymByLemma relations = new HypernymAndHyponymByLemma();
 
-        // TODO: change it at the end
-        // The path to the directory of the corpus
-        pathCorpus = "C:\\Users\\adiby\\Documents\\test";
-        // The path to the output file
-        lemma = "Arabic";
-        File folder = new File(pathCorpus);
-        File[] files = folder.listFiles();
+        try {
+            pathCorpus = args[0]; // The path to the directory of the corpus.
+            lemma = args[1]; // The path to the output file.
+            File folder = new File(pathCorpus);
+            File[] files = folder.listFiles();
 
-        for (File file : files) {
-            // TODO: remove it at the end
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-            System.out.println(file.getName() + " " + dtf.format(now));
-
-            try {
-                // Open the file
+            for (File file : files) {
+                // Open the file.
                 reader = new BufferedReader(new FileReader(
                         pathCorpus + "\\" + file.getName()));
 
                 // Read each line from the file.
                 while ((s = reader.readLine()) != null) {
                         /* Find and aggregate hypernym relations that match the
-                         Hearst patterns using regular expressions */
-                    relations.checkAndAddByLemma(s, lemma);
+                         Hearst patterns using regular expressions. */
+                    relations.checkAndAddByLemma(s.toLowerCase(), lemma.toLowerCase());
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } finally {
-                if (reader != null) {
-                    reader.close();
-                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                reader.close();
             }
         }
 
         relations.printByLemma(lemma);
-
     }
 }

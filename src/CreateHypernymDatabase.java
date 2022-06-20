@@ -1,6 +1,10 @@
-import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileReader;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 
 /**
  * @author Adi Ben Yehuda 211769757
@@ -16,36 +20,29 @@ public class CreateHypernymDatabase {
      *             the corpus and (2) the path to the output file.
      */
     public static void main(String[] args) throws IOException {
-        String pathCorpus = null, outputFile = null, s;
+        String pathCorpus, outputFile, s;
         BufferedReader reader = null;
         PrintWriter out = null;
         HypernymAndHyponymByData relations = new HypernymAndHyponymByData();
 
         try {
-            // TODO: change it at the end
-            // The path to the directory of the corpus
-            pathCorpus = "C:\\Users\\adiby\\Documents\\corpus";
-            // The path to the output file
-            outputFile = "hypernym_db.txt";
+            pathCorpus = args[0]; // The path to the directory of the corpus.
+            outputFile = args[1]; // the path to the output file.
+
             File folder = new File(pathCorpus);
             File[] files = folder.listFiles();
 
             for (File file : files) {
-                // TODO: remove it at the end
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
-                System.out.println(file.getName() + " " + dtf.format(now));
-
                 try {
-                    // Open the file
+                    // Open the file.
                     reader = new BufferedReader(new FileReader(
                             pathCorpus + "\\" + file.getName()));
 
                     // Read each line from the file.
                     while ((s = reader.readLine()) != null) {
                         /* Find and aggregate hypernym relations that match the
-                         Hearst patterns using regular expressions */
-                        relations.checkAndAdd(s);
+                         Hearst patterns using regular expressions. */
+                        relations.checkAndAdd(s.toLowerCase());
                     }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

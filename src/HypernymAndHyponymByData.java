@@ -1,7 +1,13 @@
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.LinkedHashMap;
+import java.util.Set;
+import java.util.Comparator;
 
 /**
  * @author Adi Ben Yehuda 211769757
@@ -13,7 +19,7 @@ public class HypernymAndHyponymByData {
     private Pattern[] regexesPatterns;
 
     /**
-     * The function builds a new HypernymAndHyponym object
+     * The function builds a new HypernymAndHyponym object.
      */
     public HypernymAndHyponymByData() {
         this.relations = new HashMap();
@@ -33,20 +39,20 @@ public class HypernymAndHyponymByData {
         // NP {,} such as NP {, NP, ..., {and|or} NP}
         // NP {,} including NP {, NP, ..., {and|or} NP}
         // NP {,} especially NP {, NP, ..., {and|or} NP}
-        regexes[0] = "<np>[^<]+<\\/np>( ,)? (such as|including|especially) " +
-                "(((<np>[^<]+<\\/np> , )+(and |or )?<np>[^><]+<\\/np>)" +
-                "|<np>[^<]+<\\/np>)";
+        regexes[0] = "<np>[^<]+<\\/np>( ,)? (such as|including|especially) "
+                + "(((<np>[^<]+<\\/np>( ,)? )+(and |or )?<np>[^><]+<\\/np>)|"
+                + "<np>[^<]+<\\/np>)";
 
         // such NP as NP {, NP, ..., {and|or} NP}
-        regexes[1] = "such <np>[^<]+<\\/np> as (((<np>[^<]+<\\/np> , )+(and " +
-                "|or )?<np>[^><]+<\\/np>)|<np>[^<]+<\\/np>)";
+        regexes[1] = "such <np>[^<]+<\\/np> as (((<np>[^<]+<\\/np>( ,)? )+"
+                + "(and |or )?<np>[^><]+<\\/np>)|<np>[^<]+<\\/np>)";
 
         // NP {,} which is (a\an\null) NP
         // NP {,} which is an example of (a\an\null) NP
         // NP {,} which is a kind of (a\an\null) NP
         // NP {,} which is a class of (a\an\null) NP
-        regexes[2] = "<np>[^<]+<\\/np>( ,)? which is ((an example|a kind|a " +
-                "class)? of )?<np>[^<]+<\\/np>";
+        regexes[2] = "<np>[^<]+<\\/np>( ,)? which is ((an example|a kind|a "
+                + "class)? of )?<np>[^<]+<\\/np>";
 
         this.regexesPatterns = new Pattern[3];
         for (int i = 0; i < regexes.length; i++) {
@@ -110,7 +116,8 @@ public class HypernymAndHyponymByData {
         List<Map.Entry<String, Integer>> values;
 
         // Convert the relations map to be set.
-        Set<Map.Entry<String, Map<String, Integer>>> relation = relations.entrySet();
+        Set<Map.Entry<String, Map<String, Integer>>> relation =
+                relations.entrySet();
 
         for (Map.Entry<String, Map<String, Integer>> keyAndValues : relation) {
             // Ignore hypernyms that have less than 3 distinct hyponyms.
@@ -220,10 +227,14 @@ public class HypernymAndHyponymByData {
         }
     }
 
+    /**
+     * The function returns the relations map.
+     *
+     * @return relations map.
+     */
     public Map getRelations() {
         return relations;
     }
-
 }
 
 

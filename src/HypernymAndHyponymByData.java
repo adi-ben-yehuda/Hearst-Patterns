@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.Comparator;
 
 /**
- * @author Adi Ben Yehuda 211769757
+ * @author Adi Ben Yehuda
  * @since 2022-06-12
  */
 public class HypernymAndHyponymByData {

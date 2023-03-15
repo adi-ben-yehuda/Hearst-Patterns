@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 
 /**
- * @author Adi Ben Yehuda 211769757
+ * @author Adi Ben Yehuda
  * @since 2022-06-13
  */
 public class DiscoverHypernym {

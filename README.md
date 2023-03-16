@@ -82,11 +82,9 @@ Before installing this project, you need to install on your computer:
 After it, run the following commands in the terminal:
 
 ```
-git clone https://github.com/adi-ben-yehuda/Game.git
+git clone https://github.com/adi-ben-yehuda/Hearst-Patterns.git
 ant compile
-ant -Dargs="{text}" run
 ```
-The text will contain the levels that will be shown in the game. There are four levels. If the user enters different numbers or letters, the program will ignore it. 
 
 ## Contact
 Created by @adi-ben-yehuda - feel free to contact me!

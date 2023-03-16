@@ -16,12 +16,13 @@ There are two parts in this assignment:
 1. Construct a database of hypernym relations
 2. Hypernym discovery
 
-# Part 1 - Construct a database of hypernym relations
+### Part 1 - Construct a database of hypernym relations
 The program will read all the files in the directory, find and aggregate hypernym relations that match the Hearst patterns using regular expressions, and save them in a txt file.
 Hypernym relations are semantic relations between two noun phrases (NP) which can include multiple words. 
 Although finding NPs in a text is a problem on its own, the database already contains all NPs in the text.
 There are a lot of Hearst patterns, but I'll implement only a partial list.
 1. <img width="250" alt="image" src="https://user-images.githubusercontent.com/75027826/225546578-bcb8afd8-bcaa-4b8d-89ed-a9c39f905f2d.png">
+
 In this pattern, the first NP is the hypernym and the NPs after the words "such as" are hyponyms.
 Example: "semitic languages such as Hebrew or Arabic are composed of consonants and voyels"
 semitic language ⟶ Hebrew

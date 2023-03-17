@@ -78,13 +78,32 @@ If the input lemma doesn't appear in the corpus, print: The lemma doesn't appear
 ## Installation
 Before installing this project, you need to install on your computer:
 * Git
+* IDE such as Intellij, Eclipse, etc.
+* JDK
 
-After it, run the following commands in the terminal:
+In addition, download the corpus from ***
+Run the following command in the terminal:
 
 ```
 git clone https://github.com/adi-ben-yehuda/Hearst-Patterns.git
-ant compile
 ```
+Open the project using some IDE.
+Create configuration with CreateHypernymDatabase as the Main Class, and add 2 agruments:
+first- The directory path of the corpus.
+second- name for the new txt file.
+Run the project.
 
+There is another option to run this project - using ant. 
+Run the following command in the terminal:
+
+```
+git clone https://github.com/adi-ben-yehuda/Hearst-Patterns.git
+```
+Download the corpus from [here](https://drive.google.com/drive/folders/11aVnX9r-k5iy2GafZd-o5lBBgeNRuFDN)
+Install Apache Ant Link to a guide: Apache Ant Installation Video Windows
+Open CMD in the cloned directory and run this command:
+ant compile
+ant run1 (first argument- The directory of the corpes, Second argument- name for the new txt file)
+ant run2 (first argument- The directory of the corpes, Second argument- a lemma)
 ## Contact
 Created by @adi-ben-yehuda - feel free to contact me!

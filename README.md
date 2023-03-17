@@ -81,7 +81,7 @@ Before installing this project, you need to install on your computer:
 * IDE such as Intellij, Eclipse, etc.
 * JDK
 
-In addition, download the corpus from ***
+In addition, download the corpus from [here](https://drive.google.com/drive/folders/11aVnX9r-k5iy2GafZd-o5lBBgeNRuFDN)
 Run the following command in the terminal:
 
 ```
@@ -100,10 +100,14 @@ Run the following command in the terminal:
 git clone https://github.com/adi-ben-yehuda/Hearst-Patterns.git
 ```
 Download the corpus from [here](https://drive.google.com/drive/folders/11aVnX9r-k5iy2GafZd-o5lBBgeNRuFDN)
-Install Apache Ant Link to a guide: Apache Ant Installation Video Windows
-Open CMD in the cloned directory and run this command:
+Install [Apache Ant](https://ant.apache.org/bindownload.cgi)
+Run the following command in the terminal:
+
+```
 ant compile
 ant run1 (first argument- The directory of the corpes, Second argument- name for the new txt file)
 ant run2 (first argument- The directory of the corpes, Second argument- a lemma)
+```
+
 ## Contact
 Created by @adi-ben-yehuda - feel free to contact me!

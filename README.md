@@ -65,7 +65,7 @@ where (x) corresponds to the number of occurrences of the relations (across all 
 
 Additionally, the hypernyms should also be sorted alphabetically.
 
-### Part 2
+### Part 2 - Hypernym discovery
 The main method will get 2 arguments: (1) the absolute path to the directory of the corpus and (2) a lemma.
 The program will search all the possible hypernyms of the input lemma and print them to the console as follows.
 
@@ -81,25 +81,21 @@ Before installing this project, you need to install on your computer:
 * IDE such as Intellij, Eclipse, etc.
 * JDK
 
-In addition, download the corpus from [here](https://drive.google.com/drive/folders/11aVnX9r-k5iy2GafZd-o5lBBgeNRuFDN)
-Run the following command in the terminal:
-
-```
-git clone https://github.com/adi-ben-yehuda/Hearst-Patterns.git
-```
-Open the project using some IDE.
-Create configuration with CreateHypernymDatabase as the Main Class, and add 2 agruments:
-first- The directory path of the corpus.
-second- name for the new txt file.
-Run the project.
-
-There is another option to run this project - using ant. 
 Run the following command in the terminal:
 
 ```
 git clone https://github.com/adi-ben-yehuda/Hearst-Patterns.git
 ```
 Download the corpus from [here](https://drive.google.com/drive/folders/11aVnX9r-k5iy2GafZd-o5lBBgeNRuFDN)
+
+There are two options to run this project. 
+First, open the project using any IDE.
+Create configuration with CreateHypernymDatabase as the Main Class, and add 2 agruments:
+first- The directory path of the corpus.
+second- name for the new txt file.
+Run the project.
+
+The second option is to use an ant.
 Install [Apache Ant](https://ant.apache.org/bindownload.cgi)
 Run the following command in the terminal:
 
